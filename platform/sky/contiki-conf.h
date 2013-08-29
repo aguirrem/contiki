@@ -39,7 +39,7 @@
 #define XMAC_CONF_COMPOWER               1
 #define CXMAC_CONF_COMPOWER              1
 
-#if WITH_UIP6
+#if UIP_CONF_IPV6
 /* Network setup for IPv6 */
 #define NETSTACK_CONF_NETWORK sicslowpan_driver
 
@@ -57,7 +57,7 @@
 #define QUEUEBUF_CONF_NUM                8
 #endif
 
-#else /* WITH_UIP6 */
+#else /* UIP_CONF_IPV6 */
 
 /* Network setup for non-IPv6 (rime). */
 
@@ -86,7 +86,7 @@
 #define CC2420_CONF_SFD_TIMESTAMPS       1
 #endif /* TIMESYNCH_CONF_ENABLED */
 
-#endif /* WITH_UIP6 */
+#endif /* UIP_CONF_IPV6 */
 
 #define PACKETBUF_CONF_ATTRS_INLINE 1
 
@@ -124,7 +124,7 @@
 #define PROCESS_CONF_STATS 1
 /*#define PROCESS_CONF_FASTPOLL    4*/
 
-#ifdef WITH_UIP6
+#if UIP_CONF_IPV6
 
 #define RIMEADDR_CONF_SIZE              8
 
@@ -148,7 +148,6 @@
 #define UIP_CONF_ND6_REACHABLE_TIME     600000
 #define UIP_CONF_ND6_RETRANS_TIMER      10000
 
-#define UIP_CONF_IPV6                   1
 #ifndef UIP_CONF_IPV6_QUEUE_PKT
 #define UIP_CONF_IPV6_QUEUE_PKT         0
 #endif /* UIP_CONF_IPV6_QUEUE_PKT */
@@ -175,10 +174,10 @@
 #ifndef SICSLOWPAN_CONF_MAX_MAC_TRANSMISSIONS
 #define SICSLOWPAN_CONF_MAX_MAC_TRANSMISSIONS   5
 #endif /* SICSLOWPAN_CONF_MAX_MAC_TRANSMISSIONS */
-#else /* WITH_UIP6 */
+#else /* UIP_CONF_IPV6 */
 #define UIP_CONF_IP_FORWARD      1
 #define UIP_CONF_BUFFER_SIZE     108
-#endif /* WITH_UIP6 */
+#endif /* UIP_CONF_IPV6 */
 
 #define UIP_CONF_ICMP_DEST_UNREACH 1
 
