@@ -63,6 +63,11 @@ LIBS    = memb.c mmem.c timer.c list.c etimer.c ctimer.c energest.c rtimer.c sti
           print-stats.c ifft.c crc16.c random.c checkpoint.c ringbuf.c settings.c
 DEV     = nullradio.c
 
+### Could also be placed in Makefile.uip
+ifeq ($(UIP_CONF_IPV6),1)
+  CFLAGS += -DUIP_CONF_IPV6=1
+endif
+
 include $(CONTIKI)/core/net/Makefile.uip
 include $(CONTIKI)/core/net/rpl/Makefile.rpl
 
