@@ -122,7 +122,7 @@ int main(void) {
 	/* configure address on maca hardware and RIME */
 	contiki_maca_set_mac_address(mc1322x_config.eui);
 
-#if WITH_UIP6
+#if UIP_CONF_IPV6
 	memcpy(&uip_lladdr.addr, &rimeaddr_node_addr.u8, sizeof(uip_lladdr.addr));
 	queuebuf_init();
 	NETSTACK_RDC.init();
@@ -135,7 +135,7 @@ int main(void) {
   #if DEBUG_ANNOTATE
 	print_lladdrs();
   #endif
-#endif /* endif WITH_UIP6 */
+#endif /* endif UIP_CONF_IPV6 */
 
 	process_start(&sensors_process, NULL);
 
